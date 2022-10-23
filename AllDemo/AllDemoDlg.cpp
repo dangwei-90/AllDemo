@@ -161,6 +161,10 @@ HCURSOR CAllDemoDlg::OnQueryDragIcon()
 void CAllDemoDlg::OnBnClickedOk()
 {
 	// 死锁demo。该死锁更多的是一个锁不停占用资源，另一个锁在等待资源。
-	lockdemo();
+	// lockdemo();
+
+	// 访问系统地址demo，访问不可读的区域
+	*(int*)0xA0808080 = 0x22;
+
 	CDialogEx::OnOK();
 }
